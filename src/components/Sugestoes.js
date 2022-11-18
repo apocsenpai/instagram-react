@@ -1,78 +1,38 @@
 export default function Suggestions(){
+    const suggestionsList = [
+      {profileName: "tralala", userImage:"./assets/chibirdart 1.svg", followingStatus: "Segue você"},
+      {profileName: "outroUser", userImage:"./assets/chibirdart 1.svg", followingStatus: "Segue você"},
+      {profileName: "Diferente", userImage:"./assets/barked 1.png", followingStatus: "Segue você"},
+      {profileName: "lalala", userImage:"./assets/chibirdart 1.svg", followingStatus: "Segue você"},
+      {profileName: "vrummm", userImage:"./assets/chibirdart 1.svg", followingStatus: "Segue você"},
+    ];
     return (
         <div class="user-suggestions">
           <div>
             <p>Sugestões para você</p>
             <p><a href="#">Ver tudo</a></p>
           </div>
-          <div>
-            <div>
-              <a href="#"
-                ><img src="./assets/badvibesmemes 1.png" alt=""
-              /></a>
-              <div>
-                <a href="#">
-                  <p class="user-profile">bad.vibes.memes</p>
-                  <p class="following-status">Segue você</p>
-                </a>
-              </div>
-            </div>
-            <a href="#" class="following-btn"><p>Seguir</p></a>
-          </div>
-          <div>
-            <div>
-              <a href="#"><img src="./assets/chibirdart 1.svg" alt="" /></a>
-              <div>
-                <a href="#">
-                  <p class="user-profile">chibirdart</p>
-                  <p class="following-status">Segue você</p>
-                </a>
-              </div>
-            </div>
-            <a href="#" class="following-btn"><p>Seguir</p></a>
-          </div>
-          <div>
-            <div>
-              <a href="#"
-                ><img src="./assets/razoesparaacreditar 1.svg" alt=""
-              /></a>
-              <div>
-                <a href="#">
-                  <p class="user-profile">razoesparaacreditar</p>
-                  <p class="following-status">Segue você</p>
-                </a>
-              </div>
-            </div>
-            <a href="#" class="following-btn"><p>Seguir</p></a>
-          </div>
-          <div>
-            <div>
-              <a href="#"
-                ><img src="./assets/adorableanimals 1.svg" alt=""
-              /></a>
-              <div>
-                <a href="#">
-                  <p class="user-profile">adorable_animals</p>
-                  <p class="following-status">Segue você</p>
-                </a>
-              </div>
-            </div>
-            <a href="#" class="following-btn"><p>Seguir</p></a>
-          </div>
-          <div>
-            <div>
-              <a href="#"
-                ><img src="./assets/smallcutecats 1.svg" alt=""
-              /></a>
-              <div>
-                <a href="#">
-                  <p class="user-profile">smallcutecats</p>
-                  <p class="following-status">Segue você</p>
-                </a>
-              </div>
-            </div>
-            <a href="#" class="following-btn"><p>Seguir</p></a>
-          </div>
+          {suggestionsList.map((s)=><SingleSuggestion profileName={s.profileName} userImage={s.userImage} followingStatus={s.followingStatus} />)}
         </div>
     );
+}
+
+function SingleSuggestion(props){
+  const {profileName, userImage, followingStatus} = props;
+  return (
+    <div>
+      <div>
+        <a href="#"
+          ><img src={userImage} alt=""
+        /></a>
+        <div>
+          <a href="#">
+            <p class="user-profile">{profileName}</p>
+            <p class="following-status">{followingStatus}</p>
+          </a>
+        </div>
+      </div>
+      <a href="#" class="following-btn"><p>Seguir</p></a>
+    </div>
+  );
 }

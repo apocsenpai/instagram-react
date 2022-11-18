@@ -136,6 +136,7 @@ span {
 }
 .post-header .user-info img {
   width: 32px;
+  border-radius: 100%;
 }
 .post-img {
   position: relative;
@@ -227,13 +228,7 @@ span {
 .section-sideBar {
   width: 300px;
 }
-.section-sideBar .user-info {
-  display: flex;
-  align-items: center;
-  gap: 17px;
-  padding: 23px 0px;
-}
-.section-sideBar .user-info {
+.section-sideBar .user-info>div{
   display: flex;
   align-items: center;
   gap: 17px;
