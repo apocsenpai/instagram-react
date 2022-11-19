@@ -1,6 +1,6 @@
 export default function Footer() {
   return (
-    <footer class="footer-content">
+    <footer className="footer-content">
       <a href="#">
         <ion-icon name="home"></ion-icon>
       </a>

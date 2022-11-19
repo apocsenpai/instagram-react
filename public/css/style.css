@@ -24,9 +24,7 @@ span {
   position: fixed;
   z-index: 1;
 }
-.header-content > a {
-  display: none;
-}
+
 .logo {
   display: flex;
   gap: 10px;
@@ -141,15 +139,14 @@ span {
 .post-img {
   position: relative;
   padding: 0px 1px;
-  
 }
 .post-img img {
   width: 100%;
 }
-.post-img video{
+.post-img video {
   width: 100%;
 }
-.post-img ion-icon{
+.post-img ion-icon {
   color: transparent;
   font-size: 30px;
   position: absolute;
@@ -159,7 +156,7 @@ span {
   cursor: pointer;
   transition: 300ms;
 }
-.post-img:hover ion-icon{
+.post-img:hover ion-icon {
   color: rgba(255, 255, 255, 0.582);
 }
 .post-interaction {
@@ -171,6 +168,10 @@ span {
   display: flex;
   gap: 15px;
 }
+.post-interaction ion-icon {
+  cursor: pointer;
+}
+
 .post-status {
   display: flex;
   padding: 0px 14px;
@@ -184,61 +185,74 @@ span {
   align-self: center;
   font-weight: 300;
 }
-.post-caption{
+.post-caption {
   padding: 10px 14px;
 }
-.post-followers-comments>div{
+.post-followers-comments > div {
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 5px 14px;
 }
-.post-followers-comments div ion-icon{
+.post-followers-comments div ion-icon {
   font-size: 16px;
   transition: 300ms;
 }
-.post-followers-comments div ion-icon:hover{
+.post-followers-comments div ion-icon:hover {
   color: #aaaaaa;
-
 }
-.post-user-comments{
+.post-user-comments {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 15px 14px;
   gap: 10px;
 }
-.post-user-comments ion-icon{
+.post-user-comments ion-icon {
   font-size: 30px;
 }
-.post-user-comments input{
+.post-user-comments input {
   width: 100%;
   align-self: stretch;
   border: none;
   outline: none;
 }
-.post-user-comments a{
+.post-user-comments a {
   font-weight: 500;
-  color: #B2DFFC;
+  color: #b2dffc;
   transition: 300ms;
 }
-.post-user-comments a:hover{
- color: #0095F6;
+.post-user-comments a:hover {
+  color: #0095f6;
 }
 .section-sideBar {
   width: 300px;
 }
-.section-sideBar .user-info>div{
+.section-sideBar .user-info > div {
   display: flex;
   align-items: center;
   gap: 17px;
   padding: 23px 0px;
+}
+.section-sideBar .user-info .img-wrap{
+  width: 56px;
+  height: 56px;
+}
+.section-sideBar .user-info img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 .section-sideBar .user-info p {
   font-size: 14px;
   color: #8e8e8e;
   font-weight: 300;
   line-height: 16px;
+}
+.section-sideBar .user-info ion-icon {
+  font-size: 10px;
+  color: #8e8e8e;
+  cursor: pointer;
 }
 .section-sideBar .user-info p:first-child {
   color: #262626;
@@ -297,9 +311,19 @@ span {
   color: #c7c7c7;
   margin-bottom: 18px;
 }
+.header-content > a,
 .footer-content{
   display: none;
 }
+
+.img-wrap{
+  border-radius: 50%;
+  overflow: hidden;
+}
+#color-heart{
+  color: #EE5162;
+}
+
 @media (max-width: 934px) {
   .section-sideBar {
     display: none;
@@ -322,40 +346,42 @@ span {
   .stories-container ion-icon {
     display: none;
   }
-  .section-posts{
-    gap:0px;
+  .section-posts {
+    gap: 0px;
   }
-  .main-content{
+  .main-content {
     top: 50px;
   }
-  .stories-container{
+  .stories-container {
     background-color: transparent;
     border: none;
   }
-  .header-content > a, .button-group a:first-child {
+  .header-content > a,
+  .button-group a:first-child {
     display: block;
   }
   .section-posts {
     width: 100%;
   }
-  .single-post{
+  .single-post {
     padding-bottom: 10px;
   }
-  .single-post,.post-img{
+  .single-post,
+  .post-img {
     height: auto;
   }
-  .post-status{
+  .post-status {
     align-items: flex-start;
   }
-  .footer-content{
+  .footer-content {
     width: 100%;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  background-color: #fff;
-  border-top: 1px solid #dbdbdb;
-  height: 54px;
-  position: fixed;
-  bottom: 0px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #fff;
+    border-top: 1px solid #dbdbdb;
+    height: 54px;
+    position: fixed;
+    bottom: 0px;
   }
 }

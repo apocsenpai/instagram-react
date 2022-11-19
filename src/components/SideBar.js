@@ -3,7 +3,7 @@ import User from "./User";
 
 export default function SideBar(){
     return (
-        <section class="section-sideBar">
+        <section className="section-sideBar">
             <User/>
             <Suggestions/>
             <p>

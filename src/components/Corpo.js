@@ -4,8 +4,8 @@ import Stories from "./Stories";
 
 export default function Corpo(){
     return (
-        <main class="main-content">
-            <section class="section-posts">
+        <main className="main-content">
+            <section className="section-posts">
                 <Stories/>
                 <Posts/>
             </section>
