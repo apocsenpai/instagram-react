@@ -5,6 +5,7 @@ export default function Post(props) {
   const [postLike, setPostLike] = useState("heart-outline");
   const [colorRed, setColorRed] = useState("");
   let [likeCounter, setLikeCounter] = useState(props.status.likeCounter);
+  let [animationHeart, setAnimationHeart] = useState("heart-animation hidden");
 
   function togglePostSave() {
     setPostSave(
@@ -15,17 +16,23 @@ export default function Post(props) {
   function toggleHeartLike() {
     setPostLike(postLike === "heart-outline" ? "heart" : "heart-outline");
     setColorRed(!colorRed ? "color-heart" : "");
-    setLikeCounter(postLike === "heart-outline" ? likeCounter + 1 : likeCounter -1);
-    console.log(likeCounter)
+    setLikeCounter(
+      postLike === "heart-outline" ? likeCounter + 1 : likeCounter - 1
+    );
+    
   }
 
   function addHeartLike() {
+    setAnimationHeart("heart-animation")
+    setTimeout(() => {
+      setAnimationHeart("heart-animation hidden");
+    }, 650);
     setPostLike("heart");
     setColorRed("color-heart");
-    setLikeCounter(postLike === "heart-outline" ? likeCounter + 1 : likeCounter);
+    setLikeCounter(
+      postLike === "heart-outline" ? likeCounter + 1 : likeCounter
+    );
   }
-
-  
 
   return (
     <div className="single-post">
@@ -33,6 +40,9 @@ export default function Post(props) {
       <div className="post-img">
         <img onDoubleClick={addHeartLike} src={props.image} alt="" />
         <ion-icon name="chevron-forward-circle"></ion-icon>
+        <div className={animationHeart}>
+          <div className="heart"></div>
+        </div>
       </div>
       <div className="post-interaction">
         <div className="interaction-user">
@@ -51,12 +61,12 @@ export default function Post(props) {
         ></ion-icon>
       </div>
       <div className="post-status">
-      <img src={props.status.lastImageLike} alt="" />
-      <p>
-        Curtido por <span>{props.status.lastUsernameLike}</span> e{" "}
-        <span>outras {likeCounter} pessoas</span>
-      </p>
-    </div>
+        <img src={props.status.lastImageLike} alt="" />
+        <p>
+          Curtido por <span>{props.status.lastUsernameLike}</span> e{" "}
+          <span>outras {likeCounter} pessoas</span>
+        </p>
+      </div>
       <PostCaption username={props.username} caption={props.caption} />
       <PostComments commentList={props.commentList} />
       <div className="post-user-comments">
@@ -82,7 +92,6 @@ function PostHeader(props) {
     </header>
   );
 }
-
 
 function PostCaption(props) {
   const { username, caption } = props;

@@ -22,7 +22,7 @@ span {
   border-bottom: 1px solid #dbdbdb;
   height: 54px;
   position: fixed;
-  z-index: 1;
+  z-index: 10;
 }
 
 .logo {
@@ -311,10 +311,7 @@ span {
   color: #c7c7c7;
   margin-bottom: 18px;
 }
-.header-content > a,
-.footer-content{
-  display: none;
-}
+
 
 .img-wrap{
   border-radius: 50%;
@@ -322,6 +319,61 @@ span {
 }
 #color-heart{
   color: #EE5162;
+}
+.heart-animation{
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  animation: like-animation 0.3s linear;
+  
+}
+@keyframes like-animation {
+  0%{
+    transform: scale(0.2);
+  }
+  50%{
+    transform: scale(0.6);
+  }
+  100%{
+    transform: scale(1);
+  }
+}
+.heart {
+  
+  background-color: white;
+  height: 100px;
+  width: 100px;
+  transform: rotate(-45deg);
+  position: relative;
+  
+}
+
+.heart:before,
+.heart:after {
+  content: "";
+  background-color: white;
+  border-radius: 50%;
+  height: 100px;
+  position: absolute;
+  width: 100px;
+}
+
+.heart:before {
+  top: -50px;
+}
+
+.heart:after {
+  left: 50px;
+}
+.header-content > a,
+.footer-content, .hidden{
+  display: none;
 }
 
 @media (max-width: 934px) {
@@ -382,6 +434,7 @@ span {
     border-top: 1px solid #dbdbdb;
     height: 54px;
     position: fixed;
+    z-index: 3;
     bottom: 0px;
   }
 }
