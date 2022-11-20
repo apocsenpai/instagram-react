@@ -23,8 +23,8 @@ export default function Posts(){
                 },
                 {
                     id: 2,
-                    username:"josevaldo",
-                    comment:"Ipsum dolor sit amet.",
+                    username:"Curta",
+                    comment:"um comentário",
                 }
             ]
         },
@@ -59,7 +59,6 @@ export default function Posts(){
             image:"https://p2.trrsf.com/image/fget/cf/1200/1600/middle/images.terra.com/2017/08/29/arco-iris-istock.jpg",
             status:{
                 lastUsernameLike:"adorable_animals",
-                lastImageLike: "./assets/adorableanima",
                 lastImageLike: "./assets/adorableanimals 2.png",
                 likeCounter: 1270
             },

@@ -127,12 +127,25 @@ function PostComments(props) {
 
 function SingleComment(props) {
   const { username, comment } = props;
+  
+  const [likeComment, setLikeComment] = useState('heart-outline')
+  const [colorRed, setColorRed] = useState("");
+
+  function toggleHeartLike() {
+    setLikeComment(likeComment === "heart-outline" ? "heart" : "heart-outline");
+    setColorRed(!colorRed ? "color-heart" : "");
+  }
+
   return (
     <div>
       <div className="user-comments">
         <span> {username}</span> {comment}
       </div>
-      <ion-icon name="heart-outline"></ion-icon>
+      <ion-icon
+            onClick={toggleHeartLike}
+            id={colorRed}
+            name={likeComment}
+          ></ion-icon>
     </div>
   );
 }
