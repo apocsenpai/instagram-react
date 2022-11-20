@@ -9,7 +9,6 @@ export default function Corpo(){
                 <Stories/>
                 <Posts/>
             </section>
-            
             <SideBar/>
         </main>
     );

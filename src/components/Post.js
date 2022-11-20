@@ -1,18 +1,25 @@
 import { useState } from "react";
 
-export default function Post(props) {
+export default function Post({
+  username,
+  userImage,
+  image,
+  status,
+  caption,
+  commentList,
+}) {
   const [postSave, setPostSave] = useState("bookmark-outline");
   const [postLike, setPostLike] = useState("heart-outline");
   const [colorRed, setColorRed] = useState("");
-  let [likeCounter, setLikeCounter] = useState(props.status.likeCounter);
-  let [animationHeart, setAnimationHeart] = useState("heart-animation hidden");
-
+  const [likeCounter, setLikeCounter] = useState(status.likeCounter);
+  const [animationHeart, setAnimationHeart] = useState(
+    "heart-animation hidden"
+  );
   function togglePostSave() {
     setPostSave(
       postSave === "bookmark-outline" ? "bookmark" : "bookmark-outline"
     );
   }
-
   function toggleHeartLike() {
     setPostLike(postLike === "heart-outline" ? "heart" : "heart-outline");
     setColorRed(!colorRed ? "color-heart" : "");
@@ -20,8 +27,8 @@ export default function Post(props) {
       postLike === "heart-outline" ? likeCounter + 1 : likeCounter - 1
     );
   }
-
   function addHeartLike() {
+    const animationTime = 500;
     setAnimationHeart(
       postLike === "heart-outline"
         ? "heart-animation"
@@ -29,22 +36,21 @@ export default function Post(props) {
     );
     setTimeout(() => {
       setAnimationHeart("heart-animation hidden");
-    }, 650);
+    }, animationTime);
     setPostLike("heart");
     setColorRed("color-heart");
     setLikeCounter(
       postLike === "heart-outline" ? likeCounter + 1 : likeCounter
     );
   }
-
   return (
     <div className="single-post" data-test="post">
-      <PostHeader userImage={props.userImage} username={props.username} />
+      <PostHeader userImage={userImage} username={username} />
       <div className="post-img">
         <img
           data-test="post-image"
           onDoubleClick={addHeartLike}
-          src={props.image}
+          src={image}
           alt=""
         />
         <ion-icon name="chevron-forward-circle"></ion-icon>
@@ -71,16 +77,16 @@ export default function Post(props) {
         ></ion-icon>
       </div>
       <div className="post-status">
-        <img src={props.status.lastImageLike} alt="" />
+        <img src={status.lastImageLike} alt="" />
         <p>
-          Curtido por <span>{props.status.lastUsernameLike}</span> e{" "}
+          Curtido por <span>{status.lastUsernameLike}</span> e{" "}
           <span>
             outras <span data-test="likes-number">{likeCounter}</span> pessoas
           </span>
         </p>
       </div>
-      <PostCaption username={props.username} caption={props.caption} />
-      <PostComments commentList={props.commentList} />
+      <PostCaption username={username} caption={caption} />
+      <PostComments commentList={commentList} />
       <div className="post-user-comments">
         <ion-icon name="happy-outline"></ion-icon>
         <input type="text" placeholder="Adicione um comentário..." />
@@ -90,8 +96,7 @@ export default function Post(props) {
   );
 }
 
-function PostHeader(props) {
-  const { userImage, username } = props;
+function PostHeader({ userImage, username }) {
   return (
     <header className="post-header">
       <div className="user-info">
@@ -105,8 +110,7 @@ function PostHeader(props) {
   );
 }
 
-function PostCaption(props) {
-  const { username, caption } = props;
+function PostCaption({ username, caption }) {
   return (
     <p className="post-caption">
       <span>{username}</span> {caption}
@@ -114,8 +118,7 @@ function PostCaption(props) {
   );
 }
 
-function PostComments(props) {
-  const { commentList } = props;
+function PostComments({ commentList }) {
   return (
     <div className="post-followers-comments">
       {commentList.map((c) => (
@@ -125,27 +128,23 @@ function PostComments(props) {
   );
 }
 
-function SingleComment(props) {
-  const { username, comment } = props;
-  
-  const [likeComment, setLikeComment] = useState('heart-outline')
+function SingleComment({ username, comment }) {
+  const [likeComment, setLikeComment] = useState("heart-outline");
   const [colorRed, setColorRed] = useState("");
-
   function toggleHeartLike() {
     setLikeComment(likeComment === "heart-outline" ? "heart" : "heart-outline");
     setColorRed(!colorRed ? "color-heart" : "");
   }
-
   return (
     <div>
       <div className="user-comments">
         <span> {username}</span> {comment}
       </div>
       <ion-icon
-            onClick={toggleHeartLike}
-            id={colorRed}
-            name={likeComment}
-          ></ion-icon>
+        onClick={toggleHeartLike}
+        id={colorRed}
+        name={likeComment}
+      ></ion-icon>
     </div>
   );
 }

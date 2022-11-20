@@ -37,9 +37,9 @@ function UserInfo({ profileName, username, userImage }) {
         <img data-test="profile-image" onClick={changeImage} src={image} alt="" />
       </div>
       <div>
-        <p data-test="name">{profileName}</p>
+        <p>{profileName}</p>
         <p>
-          {name} <ion-icon data-test="edit-name" onClick={changeName} name="pencil"></ion-icon>
+          <span data-test="name">{name}</span><ion-icon data-test="edit-name" onClick={changeName} name="pencil"></ion-icon>
         </p>
       </div>
     </div>

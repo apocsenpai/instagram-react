@@ -331,7 +331,7 @@ span {
   top: 0;
   left: 0;
   animation: like-animation 0.3s linear;
-  
+
 }
 @keyframes like-animation {
   0%{
@@ -345,13 +345,13 @@ span {
   }
 }
 .heart {
-  
+
   background-color: white;
   height: 50px;
   width: 50px;
   transform: rotate(-45deg);
   position: relative;
-  
+
 }
 
 .heart:before,
@@ -400,6 +400,7 @@ span {
   }
   .section-posts {
     gap: 0px;
+    width: 100%;
   }
   .main-content {
     top: 50px;
@@ -411,9 +412,6 @@ span {
   .header-content > a,
   .button-group a:first-child {
     display: block;
-  }
-  .section-posts {
-    width: 100%;
   }
   .single-post {
     padding-bottom: 10px;
