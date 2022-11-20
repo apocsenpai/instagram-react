@@ -23,12 +23,12 @@ function UserInfo({ profileName, username, userImage }) {
 
   function changeImage() {
     const newImage = prompt("Coloque o link da imagem aí mané: ");
-    setImage(!newImage ? userImage : newImage);
+    setImage(!newImage ? image : newImage);
   }
 
   function changeName() {
     const newName = prompt("Digita teu nome aí mané: ");
-    setName(!newName ? username : newName);
+    setName(!newName ? name : newName);
   }
 
   return (
