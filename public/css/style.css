@@ -347,8 +347,8 @@ span {
 .heart {
   
   background-color: white;
-  height: 100px;
-  width: 100px;
+  height: 50px;
+  width: 50px;
   transform: rotate(-45deg);
   position: relative;
   
@@ -359,17 +359,17 @@ span {
   content: "";
   background-color: white;
   border-radius: 50%;
-  height: 100px;
+  height: 50px;
   position: absolute;
-  width: 100px;
+  width: 50px;
 }
 
 .heart:before {
-  top: -50px;
+  top: -25px;
 }
 
 .heart:after {
-  left: 50px;
+  left: 25px;
 }
 .header-content > a,
 .footer-content, .hidden{

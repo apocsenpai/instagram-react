@@ -22,11 +22,13 @@ function UserInfo({ profileName, username, userImage }) {
   const [image, setImage] = useState(userImage);
 
   function changeImage() {
-    setImage(prompt("Coloque o link da imagem aí mané: "));
+    const newImage = prompt("Coloque o link da imagem aí mané: ");
+    setImage(!newImage ? userImage : newImage);
   }
 
   function changeName() {
-    setName(prompt("Digita teu nome aí mané: "));
+    const newName = prompt("Digita teu nome aí mané: ");
+    setName(!newName ? username : newName);
   }
 
   return (
