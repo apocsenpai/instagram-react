@@ -19,11 +19,14 @@ export default function Post(props) {
     setLikeCounter(
       postLike === "heart-outline" ? likeCounter + 1 : likeCounter - 1
     );
-    
   }
 
   function addHeartLike() {
-    setAnimationHeart("heart-animation")
+    setAnimationHeart(
+      postLike === "heart-outline"
+        ? "heart-animation"
+        : "heart-animation hidden"
+    );
     setTimeout(() => {
       setAnimationHeart("heart-animation hidden");
     }, 650);
@@ -35,10 +38,15 @@ export default function Post(props) {
   }
 
   return (
-    <div className="single-post">
+    <div className="single-post" data-test="post">
       <PostHeader userImage={props.userImage} username={props.username} />
       <div className="post-img">
-        <img onDoubleClick={addHeartLike} src={props.image} alt="" />
+        <img
+          data-test="post-image"
+          onDoubleClick={addHeartLike}
+          src={props.image}
+          alt=""
+        />
         <ion-icon name="chevron-forward-circle"></ion-icon>
         <div className={animationHeart}>
           <div className="heart"></div>
@@ -47,6 +55,7 @@ export default function Post(props) {
       <div className="post-interaction">
         <div className="interaction-user">
           <ion-icon
+            data-test="like-post"
             onClick={toggleHeartLike}
             id={colorRed}
             name={postLike}
@@ -55,6 +64,7 @@ export default function Post(props) {
           <ion-icon name="paper-plane-outline"></ion-icon>
         </div>
         <ion-icon
+          data-test="save-post"
           onClick={togglePostSave}
           className="btn-savePost"
           name={postSave}
@@ -64,7 +74,9 @@ export default function Post(props) {
         <img src={props.status.lastImageLike} alt="" />
         <p>
           Curtido por <span>{props.status.lastUsernameLike}</span> e{" "}
-          <span>outras {likeCounter} pessoas</span>
+          <span>
+            outras <span data-test="likes-number">{likeCounter}</span> pessoas
+          </span>
         </p>
       </div>
       <PostCaption username={props.username} caption={props.caption} />

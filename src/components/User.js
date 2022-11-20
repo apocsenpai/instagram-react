@@ -7,7 +7,7 @@ export default function User() {
     userImage: "./assets/catanacomics 1.svg",
   };
   return (
-    <div className="user-info">
+    <div data-test="user" className="user-info">
       <UserInfo
         profileName={userData.profileName}
         username={userData.username}
@@ -32,12 +32,12 @@ function UserInfo({ profileName, username, userImage }) {
   return (
     <div>
       <div className="img-wrap">
-        <img onClick={changeImage} src={image} alt="" />
+        <img data-test="profile-image" onClick={changeImage} src={image} alt="" />
       </div>
       <div>
-        <p>{profileName}</p>
+        <p data-test="name">{profileName}</p>
         <p>
-          {name} <ion-icon onClick={changeName} name="pencil"></ion-icon>
+          {name} <ion-icon data-test="edit-name" onClick={changeName} name="pencil"></ion-icon>
         </p>
       </div>
     </div>
